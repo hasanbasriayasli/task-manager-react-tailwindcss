@@ -10,7 +10,7 @@ const Assigness: FunctionComponent = () => {
         <h2 className={h2}>Assigness</h2>
         <div className={container}>
             {
-                imgArray.map((item: string) => <span className={span}>
+                imgArray.map((item: string) => <span key={item} className={span}>
                       <img className={img} src={item} alt="Avatar"/>
                    </span>)
             }

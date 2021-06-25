@@ -5,11 +5,12 @@ import Icons from "./Icons";
 import {classnames} from "tailwindcss-classnames";
 import Assigness from "./Assigness";
 import Buttons from "./Buttons";
-const container = classnames('flex',  'justify-between', 'items-center','mt-2')
+const container = classnames('flex',  'justify-between', 'items-center','py-3')
 const Header:FunctionComponent=()=>{
     return(
         <header className={styles.header}>
             <div className={container}>
+
                 <Search/>
                 <Icons/>
             </div>

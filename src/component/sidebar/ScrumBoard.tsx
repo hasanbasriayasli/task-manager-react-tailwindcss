@@ -33,6 +33,7 @@ const ScrumBoard: FunctionComponent = ():JSX.Element => {
                     active.map((item: TypeScrumBoard, index: number) => {
                         return (
                             <a href="/#"
+                               key={index}
                                className={styles.scrumBoardActive(item?.active)}
                                onClick={() => handleActive(index)}
                             >
