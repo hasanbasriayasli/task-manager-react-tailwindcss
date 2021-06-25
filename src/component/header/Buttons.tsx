@@ -1,7 +1,7 @@
 import {FunctionComponent} from "react";
 import {classnames} from "tailwindcss-classnames";
 
-const container= classnames('flex','items-center')
+const container= classnames('flex','items-center','flex-shrink-0','ml-8')
 const button1 = classnames('pl-2', 'pr-4', 'py-2', 'rounded-md',
     'text-sm', 'font-medium', 'text-white', 'bg-gray-900',
     'hover:bg-gray-800')

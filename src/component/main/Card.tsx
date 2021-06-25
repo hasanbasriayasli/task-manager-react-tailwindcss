@@ -1,17 +1,21 @@
 import {FunctionComponent} from "react";
 import {classnames} from "tailwindcss-classnames";
 import Assigness from "../header/Assigness";
+import {ICard} from "./data";
 
 const a = classnames('block', 'p-5', 'rounded-md', 'bg-white', 'shadow');
 const header = classnames('flex', 'items-baseline', 'justify-between')
 const headerRight = classnames('px-3', 'py-1', 'bg-blue-200', 'rounded');
 const headerLeft = classnames('flex', 'items-center', 'text-sm', 'text-gray-400');
-const Card: FunctionComponent = () => {
+interface IProps{
+    information:ICard
+}
+const Card: FunctionComponent<IProps> = ({information}:IProps):JSX.Element => {
     return (<a href="/#" className={a}>
         <div>
             <div className={header}>
                 <div className={headerRight}>
-                    <span className="text-sm font-medium text-blue-500 leading-">DESIGN</span>
+                    <span className="text-sm font-medium text-blue-500 leading-">{information.issue}</span>
                 </div>
                 <div className={headerLeft}>
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -25,17 +29,17 @@ const Card: FunctionComponent = () => {
                               d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/>
                     </svg>
                     <span className="ml-2">
-                        2
+                        {information.attachment}
                     </span>
                 </div>
             </div>
             <div className="mt-3">
                 <p className="text-sm text-gray-800">
-                    Product illustration to symbolize bring people together...
+                    {information.explanation}
                 </p>
             </div>
             <div className="mt-3">
-                <Assigness/>
+                <Assigness assigment={information?.assigment}/>
             </div>
         </div>
     </a>)

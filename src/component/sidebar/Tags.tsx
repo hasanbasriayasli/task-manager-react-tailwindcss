@@ -36,6 +36,7 @@ const Tags: FunctionComponent = (): JSX.Element => {
                     active.map((item: TypeTags, index: number) => {
                         return (
                             <a href="/#"
+                               key={index}
                                className={styles.scrumBoardActive(item?.active)}
                                onClick={() => handleActive(index)}
                             >

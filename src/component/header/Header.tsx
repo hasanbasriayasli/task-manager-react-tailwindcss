@@ -1,17 +1,19 @@
 import {FunctionComponent} from "react";
-import * as styles from './header.className';
 import Search from "./Search";
 import Icons from "./Icons";
 import {classnames} from "tailwindcss-classnames";
 import Assigness from "./Assigness";
 import Buttons from "./Buttons";
 import Menu from "./Menu";
-const container = classnames('flex',  'justify-between', 'items-center','py-3')
+const container = classnames('flex',  'justify-between', 'items-center','min-w-0','py-3');
+export const header = classnames( 'px-6', 'border-b', 'border-gray-200');
+
 const Header:FunctionComponent=()=>{
     return(
-        <header className={styles.header}>
+        <div className="flex-shrink-0">
+        <header className={header}>
             <div className={container}>
-                <div className="flex items-center py-2">
+                <div className="flex flex-shrink-1 items-center py-2">
                     <Menu/>
                     <Search/>
                 </div>
@@ -22,6 +24,7 @@ const Header:FunctionComponent=()=>{
                 <Buttons/>
             </div>
         </header>
+        </div>
     )
 }
 export default Header

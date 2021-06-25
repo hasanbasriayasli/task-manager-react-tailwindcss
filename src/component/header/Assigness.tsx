@@ -5,12 +5,15 @@ const container = classnames('sm:flex','sm:items-center')
 const h2 = classnames('text-lg', 'font-medium', 'text-gray-500','pr-5');
 const img = classnames('w-6', 'h-6', 'rounded-full', 'object-cover');
 const span = classnames('border-2', 'border-white', 'rounded-full','-ml-3');
-const Assigness: FunctionComponent = () => {
+interface IProps{
+    assigment?:string[]
+}
+const Assigness: FunctionComponent<IProps> = ({assigment=dataTemp}:IProps):JSX.Element => {
     return <div className={container}>
         <h2 className={h2}>Assigness</h2>
         <div className={container}>
             {
-                imgArray.map((item: string) => <span key={item} className={span}>
+                assigment.map((item: string) => <span key={item} className={span}>
                       <img className={img} src={item} alt="Avatar"/>
                    </span>)
             }
@@ -19,4 +22,4 @@ const Assigness: FunctionComponent = () => {
     </div>
 }
 export default Assigness
-const imgArray = ['./logo192.png', './logo512.png']
+const dataTemp=['./logo192.png', './logo512.png','./logo192.png', './logo512.png']
