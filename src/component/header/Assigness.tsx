@@ -13,7 +13,7 @@ const Assigness: FunctionComponent<IProps> = ({assigment=dataTemp}:IProps):JSX.E
         <h2 className={h2}>Assigness</h2>
         <div className={container}>
             {
-                assigment.map((item: string) => <span key={item} className={span}>
+                assigment.map((item: string,index:number) => <span key={index} className={span}>
                       <img className={img} src={item} alt="Avatar"/>
                    </span>)
             }
