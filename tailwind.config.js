@@ -2,10 +2,18 @@ module.exports = {
     purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            transitionProperty: {
+                'height': 'height',
+                'spacing': 'margin, padding',
+            }
+        },
     },
     variants: {
-        extend: {},
+        extend: {
+            transform: ['hover', 'focus'],
+            transitionProperty: ['hover', 'focus']
+        },
     },
     plugins: [],
 }

@@ -1,7 +1,7 @@
 import {FunctionComponent} from "react";
 import {classnames} from "tailwindcss-classnames";
 
-const container = classnames('relative', 'w-64');
+const container = classnames('relative', 'w-64','ml-4','lg:ml-0');
 const span = classnames('absolute','inset-y-0','left-0','flex','items-center','pl-3')
 const input = classnames('block','w-full','text-sm','border-gray-400','border',
     'rounded-md','py-2','pl-10','pr-4','placeholder-gray-400')
