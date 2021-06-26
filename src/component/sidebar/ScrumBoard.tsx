@@ -1,5 +1,6 @@
-import {FunctionComponent, useState} from "react";
+import {FunctionComponent} from "react";
 import * as styles from "./sidebar.classNames";
+import useActiveTab, {TypeScrumBoard} from "../customHooks/useActiveTab";
 
 const scrumBoard: TypeScrumBoard[] = [
     {name: 'Backlog', count: 23, active: false},
@@ -7,22 +8,7 @@ const scrumBoard: TypeScrumBoard[] = [
     {name: 'Reports', count: 13, active: false},
 ]
 const ScrumBoard: FunctionComponent = ():JSX.Element => {
-    const [active, setActive] = useState<TypeScrumBoard[]>(scrumBoard);
-    const handleActive = (idx: number): void => {
-        setActive((prev: TypeScrumBoard[]) => prev.map((item: TypeScrumBoard, index: number) => {
-            if (index === idx) {
-                return {
-                    ...item,
-                    active: true
-                }
-            } else {
-                return {
-                    ...item,
-                    active: false
-                }
-            }
-        }))
-    }
+   const {active,handleActive}= useActiveTab(scrumBoard);
     return (
         <>
             <h3 className={styles.navHeader}>
@@ -53,8 +39,4 @@ const ScrumBoard: FunctionComponent = ():JSX.Element => {
     )
 }
 export default ScrumBoard
-type TypeScrumBoard = {
-    name: string;
-    count: number;
-    active: boolean
-}
+

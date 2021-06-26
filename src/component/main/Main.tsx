@@ -1,24 +1,36 @@
 import {FunctionComponent} from "react";
-import {classnames} from "tailwindcss-classnames";
 import Cards from "./Cards";
-import {IItems, items} from "./data";
+import {DragDropContext, Droppable, DroppableProvided, DroppableStateSnapshot} from "react-beautiful-dnd";
+import { IItems, items} from "./data";
+import useOnDragEnd from "../customHooks/useOnDragEnd";
+import {container, h3, main, todo} from "./main.classname";
 
-const container = classnames('flex-1', 'bg-gray-50', 'overflow-auto');
-const h3 = classnames('px-3', 'pt-3', 'pb-1', 'text-2xl', 'font-medium', 'text-gray-700', 'leading-tight', 'font-mono');
-const todo = classnames('flex', 'flex-col', 'w-80', 'bg-transparent', 'rounded-md');
-const main = classnames('p-3', 'h-full', 'inline-flex', 'space-x-2', 'overflow-hidden');
+
 
 const Main: FunctionComponent = () => {
+   const {state,onDragEnd}= useOnDragEnd(items);
     return <div className={container}>
-        <main className={main}>
-            {
-                items.map((item:IItems,index:number):JSX.Element=>{
-                   return <div key={index} className={todo}>
-                        <h3 className={h3}>{item.section}</h3>
-                        <Cards list={item.cards}/>
-                    </div>
-                })
-            }
+           <main className={main}>
+               <DragDropContext onDragEnd={onDragEnd}>
+                   {
+                       state.map((item:IItems,ind:number)=>{
+                           return(
+                               <Droppable key={ind} droppableId={`${ind}`}>
+                                   {(provided:DroppableProvided, snapshot:DroppableStateSnapshot)=>(
+                                       <div
+                                           ref={provided.innerRef}
+                                           className={todo(snapshot?.isDraggingOver)}
+                                           {...provided.droppableProps}
+                                       >
+                                           <h3 className={h3}>{item.section}</h3>
+                                           <Cards list={item.cards} />
+                                       </div>
+                                   )}
+                               </Droppable>
+                           )
+                       })
+                   }
+               </DragDropContext>
         </main>
     </div>
 }

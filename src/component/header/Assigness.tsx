@@ -5,6 +5,7 @@ const container = classnames('sm:flex','sm:items-center')
 const h2 = classnames('text-lg', 'font-medium', 'text-gray-500','pr-5');
 const img = classnames('w-6', 'h-6', 'rounded-full', 'object-cover');
 const span = classnames('border-2', 'border-white', 'rounded-full','-ml-3');
+
 interface IProps{
     assigment?:string[]
 }

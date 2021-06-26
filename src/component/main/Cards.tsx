@@ -17,7 +17,7 @@ const Cards: FunctionComponent<IProps> = ({list}:IProps):JSX.Element => {
             <ul className={ul}>
                 {
                     list.map((item:ICard,index:number):JSX.Element=> <li key={index} className={li}>
-                        <Card information={item}/>
+                        <Card information={item} index={index}/>
                     </li>)
                 }
             </ul>

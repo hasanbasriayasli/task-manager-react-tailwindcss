@@ -2,7 +2,8 @@ import {FunctionComponent, useContext} from "react";
 import {classnames} from "tailwindcss-classnames";
 import {ToggleSidebarContext} from "../../App";
 
-const button = classnames('text-gray-600', 'lg:hidden')
+const button = classnames('text-gray-600', 'lg:hidden');
+
 const Menu: FunctionComponent = () => {
     const {setToggleSidebar} = useContext(ToggleSidebarContext);
     return (
