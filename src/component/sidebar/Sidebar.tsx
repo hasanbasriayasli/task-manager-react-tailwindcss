@@ -6,7 +6,7 @@ import {classnames} from "tailwindcss-classnames";
 import {ToggleSidebarContext} from "../../App";
 
 const container = classnames('fixed','inset-y-0','left-0','lg:static',
-    'w-64', 'px-8', 'py-7','z-50','bg-white',
+    'w-64', 'px-8', 'py-7','z-10','bg-white',
     'border-r','overflow-auto',
     // @ts-ignore
     'lg:translate-x-0','transform');
